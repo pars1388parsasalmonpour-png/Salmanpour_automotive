@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071a35">
+<title>Booking | SALMANPOUR AUTOMOTIVE</title>
+
+<style>
+:root{
+--bg:#f5f8ff;--surface:#fff;--text:#102443;--muted:#64748b;
+--blue:#1264e8;--deep:#071a35;--border:#dce6f5;
+}
+body.dark{--bg:#07111f;--surface:#101e32;--text:#eef5ff;--muted:#a5b4cb;--blue:#6ba5ff;--deep:#020916;--border:#263852}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;transition:.25s}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(1050px,92%);margin:auto}
+header{background:var(--surface);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;padding:20px 0}
+.logo{font-weight:900;font-size:19px;letter-spacing:1px}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;font-weight:bold}
+.controls{display:flex;gap:8px}
+button,.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:11px 14px;border-radius:9px}
+.primary{background:var(--blue);color:white;border-color:var(--blue)}
+.hero{background:linear-gradient(120deg,var(--deep),#174f9e);color:white;padding:65px 0}
+.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 15px}
+.hero p{color:#d7e6ff;line-height:2;max-width:700px}
+.section{padding:55px 0}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--border);padding:27px;border-radius:16px}
+h2{margin-top:0}
+label{display:block;font-size:13px;font-weight:bold;margin-bottom:8px}
+input,select,textarea{
+width:100%;padding:13px;border:1px solid var(--border);
+background:var(--bg);color:var(--text);border-radius:9px;outline:none
+}
+input:focus,select:focus,textarea:focus{border-color:var(--blue)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{margin-bottom:17px}
+.full{grid-column:1/-1}
+textarea{min-height:100px;resize:vertical}
+.note{font-size:12px;line-height:1.9;color:var(--muted)}
+.steps{display:grid;gap:15px}
+.step{padding:17px;border:1px solid var(--border);border-radius:12px}
+.step strong{display:block;color:var(--blue);margin-bottom:8px}
+.step p{color:var(--muted);line-height:1.8;font-size:13px;margin-bottom:0}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.quote{padding:22px;border-radius:13px;background:var(--surface);border:1px solid var(--border)}
+.quote p{line-height:1.9;color:var(--muted);font-size:13px}
+.badge{display:inline-block;padding:6px 9px;border-radius:7px;background:#e2edff;color:#174f9e;font-size:11px}
+footer{padding:25px 0;color:var(--muted);border-top:1px solid var(--border);font-size:12px}
+@media(max-width:750px){.grid{grid-template-columns:1fr}.testimonials{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a class="logo" href="index.html">SALMANPOUR <span>AUTOMOTIVE</span></a>
+<nav>
+<a href="index.html" data-i18n="home">خانه</a>
+<a href="booking.html" data-i18n="booking">رزرو و مشتریان</a>
+<a href="customization.html" data-i18n="custom">شخصی‌سازی</a>
+</nav>
+<div class="controls">
+<button id="languageBtn" type="button">EN</button>
+<button id="themeBtn" type="button">☾</button>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1 data-i18n="title">پروژه خودروی خود را آغاز کنید</h1>
+<p data-i18n="intro">مشخصات خودرو، ایده اولیه و زمان مناسب برای مشاوره را ثبت کنید. تیم پروژه می‌تواند پس از اتصال سامانه به سرویس بک‌اند، درخواست را بررسی و برای تأیید نهایی با شما تماس بگیرد.</p>
+</div>
+</section>
+
+<main class="container section">
+<div class="grid">
+<section class="panel">
+<h2 data-i18n="formTitle">فرم درخواست مشتری</h2>
+
+<form id="bookingForm">
+<div class="form-grid">
+
+<div class="field">
+<label for="name" data-i18n="name">نام کامل</label>
+<input id="name" name="name" required maxlength="100" autocomplete="name">
+</div>
+
+<div class="field">
+<label for="email" data-i18n="email">ایمیل</label>
+<input id="email" name="email" type="email" required maxlength="150" autocomplete="email">
+</div>
+
+<div class="field">
+<label for="phone" data-i18n="phone">شماره تماس</label>
+<input id="phone" name="phone" type="tel" required maxlength="30" autocomplete="tel">
+</div>
+
+<div class="field">
+<label for="country" data-i18n="country">کشور محل سکونت</label>
+<select id="country" name="country" required>
+<option value="">انتخاب کنید</option>
+<option>United Kingdom</option>
+<option>United States</option>
+<option>Germany</option>
+<option>Italy</option>
+<option>France</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label for="make" data-i18n="make">برند خودرو</label>
+<input id="make" name="make" required maxlength="80" placeholder="Ferrari, Lamborghini, Rolls-Royce...">
+</div>
+
+<div class="field">
+<label for="model" data-i18n="model">مدل خودرو</label>
+<input id="model" name="model" required maxlength="100">
+</div>
+
+<div class="field">
+<label for="year" data-i18n="year">سال ساخت</label>
+<input id="year" name="year" type="number" min="1950" max="2027" required>
+</div>
+
+<div class="field">
+<label for="budget" data-i18n="budget">بودجه تقریبی پروژه (دلار)</label>
+<select id="budget" name="budget" required>
+<option value="">انتخاب کنید</option>
+<option>$10,000 – $25,000</option>
+<option>$25,000 – $50,000</option>
+<option>$50,000 – $100,000</option>
+<option>$100,000+</option>
+</select>
+</div>
+
+<div class="field">
+<label for="date" data-i18n="date">تاریخ پیشنهادی مشاوره</label>
+<input id="date" name="date" type="date" required>
+</div>
+
+<div class="field">
+<label for="service" data-i18n="service">خدمت موردنظر</label>
+<select id="service" name="service" required>
+<option value="">انتخاب کنید</option>
+<option value="Exterior">Exterior & Carbon Fiber</option>
+<option value="Performance">Performance Engineering</option>
+<option value="Interior">Bespoke Interior</option>
+<option value="Full">Full Customization</option>
+</select>
+</div>
+
+<div class="field full">
+<label for="details" data-i18n="details">شرح پروژه و جزئیات</label>
+<textarea id="details" name="details" maxlength="3000" placeholder="توضیح دهید چه تغییراتی مدنظر دارید..."></textarea>
+</div>
+
+<div class="field full">
+<label>
+<input type="checkbox" required style="width:auto">
+<span data-i18n="consent">می‌پذیرم که این فرم صرفاً درخواست اولیه است و ثبت آن به معنی تأیید نوبت یا قرارداد نیست.</span>
+</label>
+</div>
+
+<div class="field full">
+<button class="primary" type="submit" data-i18n="submit">ثبت درخواست اولیه</button>
+</div>
+</div>
+</form>
+
+<p id="message" class="note" role="status" aria-live="polite"></p>
+<p class="note" data-i18n="privacy">در نسخه فعلی اطلاعات فقط در حافظه محلی همین مرورگر ذخیره می‌شوند. برای ارسال امن اطلاعات به شرکت باید بک‌اند یا سرویس فرم متصل شود.</p>
+</section>
+
+<aside class="panel">
+<h2 data-i18n="processTitle">مسیر همکاری</h2>
+<div class="steps">
+<div class="step">
+<strong>01 · <span data-i18n="s1">ثبت درخواست</span></strong>
+<p data-i18n="s1t">مدل خودرو، هدف پروژه و ترجیحات خود را معرفی کنید.</p>
+</div>
+<div class="step">
+<strong>02 · <span data-i18n="s2">بررسی فنی</span></strong>
+<p data-i18n="s2t">امکان‌پذیری تغییرات، مواد اولیه و الزامات ایمنی بررسی می‌شوند.</p>
+</div>
+<div class="step">
+<strong>03 · <span data-i18n="s3">پیشنهاد اختصاصی</span></strong>
+<p data-i18n="s3t">پیشنهاد اولیه شامل دامنه کار، برآورد هزینه و زمان‌بندی آماده می‌شود.</p>
+</div>
+<div class="step">
+<strong>04 · <span data-i18n="s4">تأیید نهایی</span></strong>
+<p data-i18n="s4t">شروع کار تنها پس از تأیید شرایط، هزینه‌ها و قرارداد انجام می‌شود.</p>
+</div>
+</div>
+</aside>
+</div>
+
+<section class="section">
+<h2 data-i18n="reviewsTitle">تجربه مشتریان</h2>
+<p class="note" data-i18n="reviewsNote">نمونه‌های نمایشی برای طراحی رابط کاربری؛ این متن‌ها رضایت‌نامه واقعی نیستند.</p>
+<div class="testimonials">
+<article class="quote">
+<span class="badge">DEMO</span>
+<p data-i18n="review1">«ایده ما بر اساس جزئیات ظاهری، رنگ و متریال موردنظر تعریف شد.»</p>
+<strong data-i18n="reviewName1">نمونه نمایشی · پروژه بدنه</strong>
+</article>
+<article class="quote">
+<span class="badge">DEMO</span>
+<p data-i18n="review2">«ترکیب متریال و رنگ کابین از ابتدا با یک طرح سفارشی بررسی شد.»</p>
+<strong data-i18n="reviewName2">نمونه نمایشی · پروژه کابین</strong>
+</article>
+<article class="quote">
+<span class="badge">DEMO</span>
+<p data-i18n="review3">«بررسی فنی پیش از تعیین دامنه نهایی تغییرات انجام شد.»</p>
+<strong data-i18n="reviewName3">نمونه نمایشی · پروژه مهندسی</strong>
+</article>
+</div>
+</section>
+</main>
+
+<footer><div class="container">© 2026 SALMANPOUR AUTOMOTIVE</div></footer>
+
+<script>
+const translations={
+fa:{
+home:"خانه",booking:"رزرو و مشتریان",custom:"شخصی‌سازی",
+title:"پروژه خودروی خود را آغاز کنید",
+intro:"مشخصات خودرو، ایده اولیه و زمان مناسب برای مشاوره را ثبت کنید. تیم پروژه می‌تواند پس از اتصال سامانه به سرویس بک‌اند، درخواست را بررسی و برای تأیید نهایی با شما تماس بگیرد.",
+formTitle:"فرم درخواست مشتری",name:"نام کامل",email:"ایمیل",phone:"شماره تماس",
+country:"کشور محل سکونت",make:"برند خودرو",model:"مدل خودرو",year:"سال ساخت",
+budget:"بودجه تقریبی پروژه (دلار)",date:"تاریخ پیشنهادی مشاوره",service:"خدمت موردنظر",
+details:"شرح پروژه و جزئیات",consent:"می‌پذیرم که این فرم صرفاً درخواست اولیه است و ثبت آن به معنی تأیید نوبت یا قرارداد نیست.",
+submit:"ثبت درخواست اولیه",
+privacy:"در نسخه فعلی اطلاعات فقط در حافظه محلی همین مرورگر ذخیره می‌شوند. برای ارسال امن اطلاعات به شرکت باید بک‌اند یا سرویس فرم متصل شود.",
+processTitle:"مسیر همکاری",s1:"ثبت درخواست",s1t:"مدل خودرو، هدف پروژه و ترجیحات خود را معرفی کنید.",
+s2:"بررسی فنی",s2t:"امکان‌پذیری تغییرات، مواد اولیه و الزامات ایمنی بررسی می‌شوند.",
+s3:"پیشنهاد اختصاصی",s3t:"پیشنهاد اولیه شامل دامنه کار، برآورد هزینه و زمان‌بندی آماده می‌شود.",
+s4:"تأیید نهایی",s4t:"شروع کار تنها پس از تأیید شرایط، هزینه‌ها و قرارداد انجام می‌شود.",
+reviewsTitle:"تجربه مشتریان",reviewsNote:"نمونه‌های نمایشی برای طراحی رابط کاربری؛ این متن‌ها رضایت‌نامه واقعی نیستند.",
+review1:"«ایده ما بر اساس جزئیات ظاهری، رنگ و متریال موردنظر تعریف شد.»",
+reviewName1:"نمونه نمایشی · پروژه بدنه",
+review2:"«ترکیب متریال و رنگ کابین از ابتدا با یک طرح سفارشی بررسی شد.»",
+reviewName2:"نمونه نمایشی · پروژه کابین",
+review3:"«بررسی فنی پیش از تعیین دامنه نهایی تغییرات انجام شد.»",
+reviewName3:"نمونه نمایشی · پروژه مهندسی",
+success:"درخواست به صورت محلی ذخیره شد. این به معنی ارسال به شرکت یا تأیید نوبت نیست.",
+error:"ذخیره درخواست انجام نشد. لطفاً فضای ذخیره‌سازی مرورگر را بررسی کنید."
+},
+en:{
+home:"Home",booking:"Booking & Clients",custom:"Customization",
+title:"Begin Your Automotive Project",
+intro:"Submit your vehicle details, initial concept, and preferred consultation date. Once a backend is connected, the project team can review the request and contact you for confirmation.",
+formTitle:"Client Inquiry Form",name:"Full Name",email:"Email",phone:"Phone Number",
+country:"Country of Residence",make:"Vehicle Make",model:"Vehicle Model",year:"Model Year",
+budget:"Estimated Project Budget (USD)",date:"Preferred Consultation Date",service:"Requested Service",
+details:"Project Description & Details",consent:"I understand that this is an initial inquiry, not a confirmed appointment or contract.",
+submit:"Submit Initial Inquiry",
+privacy:"In this version, information is stored only in this browser. A backend or form service is required for secure submission to the company.",
+processTitle:"Our Process",s1:"Submit an Inquiry",s1t:"Tell us about your vehicle, project goals, and preferences.",
+s2:"Technical Review",s2t:"We assess feasibility, materials, and relevant safety requirements.",
+s3:"Bespoke Proposal",s3t:"A preliminary scope, estimated budget, and timeline are prepared.",
+s4:"Final Approval",s4t:"Work begins only after the scope, costs, and agreement are approved.",
+reviewsTitle:"Client Experiences",reviewsNote:"Illustrative UI examples only. These are not real customer testimonials.",
+review1:"“The concept was defined around the requested visual details, color, and materials.”",
+reviewName1:"Demo · Exterior Project",
+review2:"“Interior materials and colors were explored through a bespoke concept.”",
+reviewName2:"Demo · Interior Project",
+review3:"“Technical feasibility was reviewed before defining the final scope.”",
+reviewName3:"Demo · Engineering Project",
+success:"Your inquiry was saved locally. It has not been sent to the company or confirmed.",
+error:"The inquiry could not be saved. Please check your browser storage."
+}
+};
+
+let lang=localStorage.getItem("sa-lang")||"fa";
+let dark=localStorage.getItem("sa-dark")==="true";
+
+function applyLanguage(){
+document.documentElement.lang=lang;
+document.documentElement.dir=lang==="fa"?"rtl":"ltr";
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const key=el.dataset.i18n;
+if(translations[lang][key])el.textContent=translations[lang][key];
+});
+document.getElementById("languageBtn").textContent=lang==="fa"?"EN":"فا";
+}
+function applyTheme(){
+document.body.classList.toggle("dark",dark);
+document.getElementById("themeBtn").textContent=dark?"☀":"☾";
+}
+document.getElementById("languageBtn").onclick=()=>{
+lang=lang==="fa"?"en":"fa";
+localStorage.setItem("sa-lang",lang);
+applyLanguage();
+};
+document.getElementById("themeBtn").onclick=()=>{
+dark=!dark;localStorage.setItem("sa-dark",dark);applyTheme();
+};
+
+document.getElementById("date").min=new Date().toISOString().split("T")[0];
+
+document.getElementById("bookingForm").addEventListener("submit",event=>{
+event.preventDefault();
+const form=event.currentTarget;
+if(!form.reportValidity())return;
+
+const data=Object.fromEntries(new FormData(form).entries());
+data.createdAt=new Date().toISOString();
+
+try{
+const entries=JSON.parse(localStorage.getItem("sa-inquiries")||"[]");
+entries.push(data);
+localStorage.setItem("sa-inquiries",JSON.stringify(entries));
+document.getElementById("message").textContent=translations[lang].success;
+form.reset();
+}catch(error){
+document.getElementById("message").textContent=translations[lang].error;
+}
+});
+
+applyLanguage();
+applyTheme();
+</script>
+</body>
+  </html>
