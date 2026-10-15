@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071a35">
+<meta name="description" content="SALMANPOUR AUTOMOTIVE | Bespoke customization for the world's most exclusive automobiles.">
+<title>SALMANPOUR AUTOMOTIVE | Luxury Redefined</title>
+
+<style>
+:root{
+  --bg:#f5f8ff;
+  --surface:#ffffff;
+  --text:#102443;
+  --muted:#64748b;
+  --blue:#1264e8;
+  --deep:#071a35;
+  --border:#dce6f5;
+}
+body.dark{
+  --bg:#07111f;
+  --surface:#101e32;
+  --text:#eef5ff;
+  --muted:#a5b4cb;
+  --blue:#6ba5ff;
+  --deep:#020916;
+  --border:#263852;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:background .25s,color .25s;
+}
+a{color:inherit;text-decoration:none}
+button,select,input{font:inherit}
+button{cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:78px;
+  flex-wrap:wrap;
+}
+.logo{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.navlinks a{font-size:13px;font-weight:bold}
+.controls{display:flex;gap:8px}
+.control,.btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:10px;
+  padding:11px 14px;
+}
+.btn.primary{background:var(--blue);color:white;border-color:var(--blue)}
+.hero{
+  min-height:600px;
+  display:grid;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(4,17,37,.93),rgba(4,17,37,.50)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85") center/cover;
+  color:white;
+}
+.hero-content{max-width:730px;padding:90px 0}
+.eyebrow{
+  color:#82b5ff;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
+}
+h1{font-size:clamp(36px,6vw,70px);line-height:1.2;margin:20px 0}
+.hero p{font-size:17px;line-height:2;color:#d5e3f8;max-width:640px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.section{padding:85px 0}
+.section-head{max-width:720px;margin-bottom:32px}
+.section-head h2{font-size:clamp(27px,4vw,42px);margin:0 0 14px}
+.section-head p{line-height:2;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+}
+.card img{width:100%;height:220px;object-fit:cover;display:block}
+.card-body{padding:23px}
+.card h3{margin:0 0 12px}
+.card p{color:var(--muted);line-height:1.9;font-size:14px}
+.text-link{color:var(--blue);font-weight:bold}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:35px;
+}
+.stat{
+  padding:24px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+.stat strong{display:block;font-size:25px;color:var(--blue);margin-bottom:8px}
+.stat span{color:var(--muted);font-size:13px}
+.locations{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.location{
+  text-align:center;padding:23px 8px;border-radius:12px;
+  background:var(--surface);border:1px solid var(--border);
+}
+.location strong{display:block;margin-bottom:7px}
+.location span{color:var(--muted);font-size:12px}
+.cta{
+  padding:38px;border-radius:20px;background:var(--deep);color:white;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  flex-wrap:wrap;
+}
+.cta p{color:#c5d6ef;line-height:1.8}
+footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+@media(max-width:850px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .locations{grid-template-columns:repeat(3,1fr)}
+  .nav{padding:14px 0}
+}
+@media(max-width:560px){
+  .grid,.stats{grid-template-columns:1fr}
+  .locations{grid-template-columns:repeat(2,1fr)}
+  .hero{min-height:520px}
+  .hero-content{padding:65px 0}
+  .navlinks{gap:12px}
+  .logo{font-size:17px}
+  .control{padding:9px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">SALMANPOUR <span>AUTOMOTIVE</span></a>
+
+    <nav class="navlinks">
+      <a href="index.html" data-i18n="home">خانه</a>
+      <a href="booking.html" data-i18n="booking">رزرو و مشتریان</a>
+      <a href="customization.html" data-i18n="custom">شخصی‌سازی</a>
+    </nav>
+
+    <div class="controls">
+      <button class="control" id="languageBtn" type="button">EN</button>
+      <button class="control" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow" data-i18n="eyebrow">AUTOMOTIVE ARTISTRY · EST. 2026</div>
+    <h1 data-i18n="heroTitle">فراتر از خودرو؛ امضای شما بر مهندسی لوکس</h1>
+    <p data-i18n="heroText">
+      ما خودروهای فوق‌لوکس را به آثار منحصربه‌فرد تبدیل می‌کنیم.
+      از طراحی بدنه و قطعات فیبر کربن تا مهندسی عملکرد و کابین سفارشی،
+      هر جزئیات مطابق سلیقه شما تعریف می‌شود.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="customization.html" data-i18n="explore">کشف دنیای شخصی‌سازی</a>
+      <a class="btn" href="booking.html" data-i18n="appointment">درخواست مشاوره</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="aboutTitle">تعریف تازه‌ای از انحصار</h2>
+      <p data-i18n="aboutText">
+        SALMANPOUR AUTOMOTIVE یک کانسپت برند در زمینه شخصی‌سازی خودروهای
+        فوق‌لوکس با تمرکز بر طراحی اختصاصی، متریال ممتاز و توجه به جزئیات است.
+        هر پروژه از یک ایده شروع می‌شود و با تأیید مشتری به یک طرح سفارشی تبدیل خواهد شد.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>500K+</strong>
+        <span data-i18n="stat1">ارزش هدف خودروها: بیش از ۵۰۰ هزار دلار</span>
+      </div>
+      <div class="stat">
+        <strong>1 OF 1</strong>
+        <span data-i18n="stat2">طراحی اختصاصی برای هر سفارش</span>
+      </div>
+      <div class="stat">
+        <strong>360°</strong>
+        <span data-i18n="stat3">از طراحی بدنه تا فضای داخلی</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="servicesTitle">مهندسی با امضای شما</h2>
+      <p data-i18n="servicesText">سه مسیر اصلی برای ساخت خودرویی که هیچ نمونه دیگری از آن وجود ندارد.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="Luxury car exterior">
+        <div class="card-body">
+          <h3 data-i18n="service1">طراحی بدنه و آیرودینامیک</h3>
+          <p data-i18n="service1Text">سپرهای اختصاصی، اسپلیتر، دیفیوزر، رکاب و قطعات کربنی با طراحی هماهنگ.</p>
+          <a class="text-link" href="customization.html" data-i18n="details">مشاهده جزئیات ←</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" alt="Performance sports car">
+        <div class="card-body">
+          <h3 data-i18n="service2">ارتقای عملکرد</h3>
+          <p data-i18n="service2Text">بررسی مهندسی موتور، خنک‌کاری، ترمز و سیستم تعلیق بر اساس پلتفرم خودرو.</p>
+          <a class="text-link" href="customization.html" data-i18n="details">مشاهده جزئیات ←</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=900&q=80" alt="Luxury car interior">
+        <div class="card-body">
+          <h3 data-i18n="service3">کابین سفارشی</h3>
+          <p data-i18n="service3Text">چرم ممتاز، تودوزی پارچه‌ای، جزئیات فلزی و ترکیب رنگ اختصاصی.</p>
+          <a class="text-link" href="customization.html" data-i18n="details">مشاهده جزئیات ←</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="locationsTitle">حضور بین‌المللی</h2>
+      <p data-i18n="locationsText">بازارهای هدف و مقاصد برنامه‌ریزی‌شده برند.</p>
+    </div>
+
+    <div class="locations">
+      <div class="location"><strong>🇬🇧 <span data-i18n="uk">انگلستان</span></strong><span>United Kingdom</span></div>
+      <div class="location"><strong>🇺🇸 <span data-i18n="us">آمریکا</span></strong><span>United States</span></div>
+      <div class="location"><strong>🇩🇪 <span data-i18n="de">آلمان</span></strong><span>Germany</span></div>
+      <div class="location"><strong>🇮🇹 <span data-i18n="it">ایتالیا</span></strong><span>Italy</span></div>
+      <div class="location"><strong>🇫🇷 <span data-i18n="fr">فرانسه</span></strong><span>France</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cta">
+    <div>
+      <h2 data-i18n="ctaTitle">خودروی بعدی شما، یک اثر اختصاصی</h2>
+      <p data-i18n="ctaText">ایده‌تان را ثبت کنید تا مسیر طراحی و امکان‌سنجی بررسی شود.</p>
+    </div>
+    <a class="btn primary" href="booking.html" data-i18n="ctaButton">شروع پروژه</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 SALMANPOUR AUTOMOTIVE ·
+    <span data-i18n="footer">مفهوم برند شخصی‌سازی خودروهای فوق‌لوکس</span>
+  </div>
+</footer>
+
+<script>
+const translations={
+fa:{
+home:"خانه",booking:"رزرو و مشتریان",custom:"شخصی‌سازی",
+eyebrow:"هنر خودروسازی · تأسیس ۲۰۲۶",
+heroTitle:"فراتر از خودرو؛ امضای شما بر مهندسی لوکس",
+heroText:"ما خودروهای فوق‌لوکس را به آثار منحصربه‌فرد تبدیل می‌کنیم. از طراحی بدنه و قطعات فیبر کربن تا مهندسی عملکرد و کابین سفارشی، هر جزئیات مطابق سلیقه شما تعریف می‌شود.",
+explore:"کشف دنیای شخصی‌سازی",appointment:"درخواست مشاوره",
+aboutTitle:"تعریف تازه‌ای از انحصار",
+aboutText:"SALMANPOUR AUTOMOTIVE یک کانسپت برند در زمینه شخصی‌سازی خودروهای فوق‌لوکس با تمرکز بر طراحی اختصاصی، متریال ممتاز و توجه به جزئیات است. هر پروژه از یک ایده شروع می‌شود و با تأیید مشتری به یک طرح سفارشی تبدیل خواهد شد.",
+stat1:"ارزش هدف خودروها: بیش از ۵۰۰ هزار دلار",stat2:"طراحی اختصاصی برای هر سفارش",stat3:"از طراحی بدنه تا فضای داخلی",
+servicesTitle:"مهندسی با امضای شما",servicesText:"سه مسیر اصلی برای ساخت خودرویی که هیچ نمونه دیگری از آن وجود ندارد.",
+service1:"طراحی بدنه و آیرودینامیک",service1Text:"سپرهای اختصاصی، اسپلیتر، دیفیوزر، رکاب و قطعات کربنی با طراحی هماهنگ.",
+service2:"ارتقای عملکرد",service2Text:"بررسی مهندسی موتور، خنک‌کاری، ترمز و سیستم تعلیق بر اساس پلتفرم خودرو.",
+service3:"کابین سفارشی",service3Text:"چرم ممتاز، تودوزی پارچه‌ای، جزئیات فلزی و ترکیب رنگ اختصاصی.",
+details:"مشاهده جزئیات ←",locationsTitle:"حضور بین‌المللی",locationsText:"بازارهای هدف و مقاصد برنامه‌ریزی‌شده برند.",
+uk:"انگلستان",us:"آمریکا",de:"آلمان",it:"ایتالیا",fr:"فرانسه",
+ctaTitle:"خودروی بعدی شما، یک اثر اختصاصی",ctaText:"ایده‌تان را ثبت کنید تا مسیر طراحی و امکان‌سنجی بررسی شود.",
+ctaButton:"شروع پروژه",footer:"مفهوم برند شخصی‌سازی خودروهای فوق‌لوکس"
+},
+en:{
+home:"Home",booking:"Booking & Clients",custom:"Customization",
+eyebrow:"AUTOMOTIVE ARTISTRY · EST. 2026",
+heroTitle:"Beyond the Automobile. Your Signature in Luxury Engineering.",
+heroText:"We envision transforming ultra-luxury vehicles into distinctive creations. From bespoke bodywork and carbon-fiber components to performance engineering and tailored interiors, every detail begins with your vision.",
+explore:"Explore Customization",appointment:"Request a Consultation",
+aboutTitle:"A New Definition of Exclusivity",
+aboutText:"SALMANPOUR AUTOMOTIVE is a brand concept focused on bespoke customization of ultra-luxury vehicles, combining distinctive design, premium materials, and meticulous attention to detail. Every project begins with an idea and develops into a custom proposal subject to client approval.",
+stat1:"Target vehicles valued above $500,000",stat2:"A bespoke design for every commission",stat3:"Exterior design to interior craftsmanship",
+servicesTitle:"Engineering with Your Signature",servicesText:"Three pathways toward a vehicle unlike any other.",
+service1:"Bespoke Exterior & Aerodynamics",service1Text:"Custom bumpers, splitters, diffusers, side skirts, and coordinated carbon-fiber components.",
+service2:"Performance Upgrades",service2Text:"Platform-specific engineering assessments for engines, cooling, brakes, and suspension.",
+service3:"Bespoke Interiors",service3Text:"Premium leather, tailored upholstery, metallic accents, and personalized color combinations.",
+details:"Explore Details →",locationsTitle:"International Vision",locationsText:"Target markets and planned destinations for the brand.",
+uk:"United Kingdom",us:"United States",de:"Germany",it:"Italy",fr:"France",
+ctaTitle:"Your Next Vehicle. A Bespoke Creation.",ctaText:"Submit your vision to begin a design and feasibility consultation.",
+ctaButton:"Start a Project",footer:"A concept brand for ultra-luxury automotive customization"
+}
+};
+
+let lang=localStorage.getItem("sa-lang")||"fa";
+let dark=localStorage.getItem("sa-dark")==="true";
+
+function applyLanguage(){
+document.documentElement.lang=lang;
+document.documentElement.dir=lang==="fa"?"rtl":"ltr";
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const key=el.dataset.i18n;
+if(translations[lang][key])el.textContent=translations[lang][key];
+});
+document.getElementById("languageBtn").textContent=lang==="fa"?"EN":"فا";
+}
+function applyTheme(){
+document.body.classList.toggle("dark",dark);
+document.getElementById("themeBtn").textContent=dark?"☀":"☾";
+}
+document.getElementById("languageBtn").addEventListener("click",()=>{
+lang=lang==="fa"?"en":"fa";
+localStorage.setItem("sa-lang",lang);
+applyLanguage();
+});
+document.getElementById("themeBtn").addEventListener("click",()=>{
+dark=!dark;
+localStorage.setItem("sa-dark",dark);
+applyTheme();
+});
+applyLanguage();
+applyTheme();
+</script>
+</body>
+</html>
